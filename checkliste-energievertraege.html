@@ -9,23 +9,238 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .page-hero {
-      padding: 3rem 0;
-      background: linear-gradient(165deg, var(--color-white) 0%, var(--color-warm-gray) 100%);
+    /* Smooth Scroll Behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* ===========================================
+       HERO SECTION - Modern, Responsive Design
+       =========================================== */
+    
+    .hero {
+      /* Basis-Layout */
+      position: relative;
+      width: 100%;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Hintergrundbild - einfach austauschbar über URL */
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* === BILD HIER ÄNDERN === */
+      background-image: url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* Parallax-Effekt (optional) */
+      background-attachment: fixed;
+      z-index: 1;
+    }
+
+    /* Dunkles Overlay für bessere Lesbarkeit */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(26, 54, 93, 0.9) 0%,
+        rgba(44, 82, 130, 0.85) 50%,
+        rgba(26, 54, 93, 0.9) 100%
+      );
+      z-index: 2;
+    }
+
+    /* Content-Container */
+    .hero-content {
+      position: relative;
+      z-index: 3;
       text-align: center;
+      padding: 3rem 1.5rem;
+      max-width: 800px;
+      /* Fade-In Animation beim Laden */
+      animation: heroFadeIn 1s ease-out forwards;
     }
 
-    .page-hero h1 {
-      font-size: clamp(1.75rem, 3vw, 2.25rem);
-      color: var(--color-navy);
-      margin: 0 0 0.75rem;
+    /* Überschrift */
+    .hero-title {
+      font-size: clamp(1.75rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 1rem;
+      line-height: 1.2;
+      /* Slide-Up Animation */
+      animation: slideUp 0.8s ease-out 0.2s both;
     }
 
-    .page-hero p {
-      color: var(--color-text-muted);
+    /* Untertitel */
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 2rem;
+      line-height: 1.6;
       max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.0625rem;
+      margin-left: auto;
+      margin-right: auto;
+      /* Slide-Up Animation verzögert */
+      animation: slideUp 0.8s ease-out 0.4s both;
+    }
+
+    /* Call-to-Action Button */
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: #38A169;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      /* Slide-Up Animation verzögert */
+      animation: slideUp 0.8s ease-out 0.6s both;
+    }
+
+    .hero-cta:hover {
+      background: #2F855A;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(56, 161, 105, 0.4);
+    }
+
+    .hero-cta:active {
+      transform: translateY(-1px);
+    }
+
+    /* Scroll-Indicator (optional) */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll span {
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid rgba(255, 255, 255, 0.6);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+      transform: rotate(45deg);
+    }
+
+    /* === ANIMATIONEN === */
+    @keyframes heroFadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    
+    /* Tablet */
+    @media (max-width: 900px) {
+      .hero {
+        min-height: 45vh;
+      }
+
+      .hero-bg {
+        /* Parallax deaktivieren auf Tablets für bessere Performance */
+        background-attachment: scroll;
+      }
+
+      .hero-content {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 40vh;
+      }
+
+      .hero-bg {
+        background-attachment: scroll;
+      }
+
+      .hero-content {
+        padding: 2rem 1rem;
+      }
+
+      .hero-title {
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-subtitle {
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-cta {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9375rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+    }
+
+    /* Für Nutzer die reduzierte Bewegung bevorzugen */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-content,
+      .hero-title,
+      .hero-subtitle,
+      .hero-cta {
+        animation: none;
+      }
+      
+      .hero-scroll {
+        animation: none;
+      }
     }
 
     .main-section {
@@ -283,19 +498,175 @@
       color: var(--color-green);
     }
 
-    @media (max-width: 768px) {
-      .main-section,
-      .benefits-section {
-        padding: 2.5rem 0;
+    /* Tablet - Benefits */
+    @media (max-width: 900px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .main-section {
+        padding: 1.5rem 0 2rem;
       }
 
-      .info-box,
-      .action-box {
-        padding: 1.5rem;
+      .back-link {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+        opacity: 0.7;
       }
 
       .content-grid {
-        gap: 2rem;
+        gap: 1.25rem;
+      }
+
+      .info-box {
+        padding: 1.25rem;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .info-box h2 {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .steps-list li {
+        padding: 1rem 0;
+        gap: 0.75rem;
+      }
+
+      .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+      }
+
+      .step-content h3 {
+        font-size: 0.9375rem;
+      }
+
+      .step-content p {
+        font-size: 0.8125rem;
+        line-height: 1.5;
+      }
+
+      .action-box {
+        padding: 1.25rem;
+        border-radius: 10px;
+      }
+
+      .action-box h2 {
+        font-size: 1.125rem;
+        text-align: center;
+      }
+
+      .action-box > p {
+        font-size: 0.875rem;
+        text-align: center;
+        margin-bottom: 1.25rem;
+      }
+
+      .email-info {
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .email-label {
+        font-size: 0.75rem;
+      }
+
+      .email-address {
+        font-size: 0.9375rem;
+      }
+
+      .what-to-send {
+        margin-bottom: 1.25rem;
+      }
+
+      .what-to-send h3 {
+        font-size: 0.875rem;
+        text-align: center;
+      }
+
+      .what-to-send ul {
+        font-size: 0.8125rem;
+        padding-left: 1.5rem;
+      }
+
+      .what-to-send li {
+        margin-bottom: 0.35rem;
+      }
+
+      .btn-email {
+        padding: 0.875rem 1rem;
+        font-size: 0.9375rem;
+        border-radius: 8px;
+      }
+
+      .privacy-note {
+        font-size: 0.75rem;
+        margin-top: 0.75rem;
+      }
+
+      .benefits-section {
+        padding: 2rem 0;
+      }
+
+      .benefits-section h2 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .benefits-lead {
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .benefit-card {
+        padding: 1rem;
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 0.75rem;
+      }
+
+      .benefit-card h3 {
+        font-size: 0.9375rem;
+        margin-bottom: 0.25rem;
+        flex-shrink: 0;
+        min-width: 100px;
+      }
+
+      .benefit-card p {
+        font-size: 0.8125rem;
+        line-height: 1.4;
+        margin: 0;
+      }
+    }
+
+    /* Very small screens */
+    @media (max-width: 380px) {
+      .benefit-card {
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .benefit-card h3 {
+        min-width: auto;
+      }
+
+      .email-address {
+        font-size: 0.8125rem;
       }
     }
   </style>
@@ -339,16 +710,34 @@
   </header>
 
   <main id="main">
-    <!-- Page Hero -->
-    <section class="page-hero">
-      <div class="container">
-        <h1>Energiekosten-Check für Ihr Unternehmen</h1>
-        <p>Wir prüfen Ihre Energieverträge und zeigen Ihnen unverbindlich Ihr Einsparpotenzial.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Hintergrundbild (URL einfach austauschbar im CSS) -->
+      <div class="hero-bg"></div>
+      
+      <!-- Dunkles Overlay für Lesbarkeit -->
+      <div class="hero-overlay"></div>
+      
+      <!-- Zentrierter Content -->
+      <div class="hero-content">
+        <h1 class="hero-title">Energiekosten-Check für Ihr Unternehmen</h1>
+        <p class="hero-subtitle">Wir prüfen Ihre Energieverträge und zeigen Ihnen unverbindlich Ihr Einsparpotenzial.</p>
+        <a href="#main-content" class="hero-cta">
+          Jetzt Analyse starten
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Scroll-Indicator -->
+      <div class="hero-scroll">
+        <span></span>
       </div>
     </section>
 
     <!-- Main Section -->
-    <section class="main-section">
+    <section class="main-section" id="main-content">
       <div class="container">
         <a href="index.html" class="back-link">← Zurück zur Startseite</a>
         
@@ -362,21 +751,21 @@
                 <span class="step-number">1</span>
                 <div class="step-content">
                   <h3>Abrechnung senden</h3>
-                  <p>Schicken Sie uns Ihre letzte Strom- und/oder Gas-Jahresabrechnung per E-Mail – ein Foto oder Scan reicht völlig aus.</p>
+                  <p>Senden Sie uns Ihre Jahresabrechnung per E-Mail – Foto oder Scan reicht aus.</p>
                 </div>
               </li>
               <li>
                 <span class="step-number">2</span>
                 <div class="step-content">
                   <h3>Wir analysieren</h3>
-                  <p>Unsere Experten prüfen Ihre Verträge, vergleichen mit aktuellen Marktangeboten und identifizieren Einsparpotenziale.</p>
+                  <p>Wir prüfen Ihre Verträge und identifizieren Einsparpotenziale.</p>
                 </div>
               </li>
               <li>
                 <span class="step-number">3</span>
                 <div class="step-content">
-                  <h3>Sie erhalten Ihre Analyse</h3>
-                  <p>Wir melden uns zeitnah mit einer unverbindlichen Energiekostenanalyse und konkreten Einsparpotenzialen.</p>
+                  <h3>Ergebnis erhalten</h3>
+                  <p>Sie erhalten eine unverbindliche Analyse mit konkreten Zahlen.</p>
                 </div>
               </li>
             </ol>
@@ -386,7 +775,7 @@
           <!-- Right: Action -->
           <div class="action-box">
             <h2>Jetzt Analyse anfordern</h2>
-            <p>Senden Sie uns Ihre Jahresabrechnung und wir melden uns mit Ihrer persönlichen Energiekostenanalyse.</p>
+            <p>Senden Sie uns Ihre Jahresabrechnung – wir melden uns mit Ihrem Einsparpotenzial.</p>
 
             <div class="email-info">
               <p class="email-label">Senden Sie Ihre Unterlagen an:</p>
@@ -398,14 +787,13 @@
             <div class="what-to-send">
               <h3>Was Sie senden sollten:</h3>
               <ul>
-                <li>Letzte Stromjahresabrechnung (Foto oder Scan)</li>
-                <li>Optional: Gasjahresabrechnung</li>
-                <li>Kurze Info zu Ihrem Unternehmen</li>
+                <li>Strom-Jahresabrechnung (Foto/Scan)</li>
+                <li>Optional: Gas-Jahresabrechnung</li>
               </ul>
             </div>
 
             <a href="mailto:analyse@energieexpert-b2b.de?subject=Energiekostenanalyse%20anfordern&body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20eine%20kostenlose%20Energiekostenanalyse%20anfordern.%0A%0AMeine%20Jahresabrechnung%20finden%20Sie%20im%20Anhang.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn-email">
-              📧 E-Mail mit Anhang öffnen
+              E-Mail öffnen
             </a>
 
             <p class="privacy-note">Ihre Daten werden vertraulich behandelt und nur für die Analyse verwendet.</p>
@@ -422,23 +810,23 @@
 
         <div class="benefits-grid">
           <article class="benefit-card">
-            <h3>100% Kostenlos</h3>
-            <p>Die Analyse ist für Sie komplett unverbindlich und kostenlos – ohne versteckte Kosten.</p>
+            <h3>Kostenlos</h3>
+            <p>Unverbindliche Analyse ohne versteckte Kosten.</p>
           </article>
 
           <article class="benefit-card">
             <h3>Kein Aufwand</h3>
-            <p>Sie senden nur Ihre Abrechnung – wir übernehmen die komplette Analyse und Recherche.</p>
+            <p>Sie senden nur Ihre Abrechnung – wir erledigen den Rest.</p>
           </article>
 
           <article class="benefit-card">
-            <h3>Konkrete Zahlen</h3>
-            <p>Sie erhalten keine vagen Versprechen, sondern eine Analyse mit echten Einsparpotenziale.</p>
+            <h3>Konkret</h3>
+            <p>Echte Zahlen statt vager Versprechen.</p>
           </article>
 
           <article class="benefit-card">
             <h3>Unabhängig</h3>
-            <p>Wir arbeiten anbieterunabhängig – unsere Empfehlung basiert nur auf Ihrem Vorteil.</p>
+            <p>Empfehlungen basieren nur auf Ihrem Vorteil.</p>
           </article>
         </div>
       </div>
