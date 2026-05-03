@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kostenlose Energiekostenanalyse | EnergieExpert B2B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .page-hero {
+      padding: 3rem 0;
+      background: linear-gradient(165deg, var(--color-white) 0%, var(--color-warm-gray) 100%);
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      color: var(--color-navy);
+      margin: 0 0 0.75rem;
+    }
+
+    .page-hero p {
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.0625rem;
+    }
+
+    .main-section {
+      padding: 4rem 0;
+    }
+
+    .content-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (min-width: 900px) {
+      .content-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .info-box {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      border: 1px solid var(--color-border);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .info-box h2 {
+      color: var(--color-navy);
+      margin: 0 0 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .steps-list li {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .steps-list li:last-child {
+      border-bottom: none;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--color-green);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+
+    .step-content h3 {
+      margin: 0 0 0.35rem;
+      color: var(--color-navy);
+      font-size: 1.0625rem;
+    }
+
+    .step-content p {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: 0.9375rem;
+    }
+
+    .highlight-card {
+      background: linear-gradient(135deg, #F0FFF4 0%, #E6FFFA 100%);
+      border: 2px solid var(--color-green);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .highlight-card p {
+      margin: 0;
+      font-weight: 600;
+      color: var(--color-navy);
+    }
+
+    .highlight-card .time {
+      font-size: 1.5rem;
+      color: var(--color-green);
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .action-box {
+      background: var(--color-navy);
+      border-radius: var(--radius);
+      padding: 2rem;
+      color: #fff;
+    }
+
+    .action-box h2 {
+      color: #fff;
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    .action-box > p {
+      opacity: 0.9;
+      margin: 0 0 1.5rem;
+    }
+
+    .email-info {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .email-label {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .email-address {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-green);
+      word-break: break-all;
+    }
+
+    .email-address a {
+      color: var(--color-green);
+      text-decoration: none;
+    }
+
+    .email-address a:hover {
+      text-decoration: underline;
+    }
+
+    .what-to-send {
+      margin-bottom: 1.5rem;
+    }
+
+    .what-to-send h3 {
+      font-size: 1rem;
+      margin: 0 0 0.75rem;
+      color: #fff;
+    }
+
+    .what-to-send ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      opacity: 0.9;
+    }
+
+    .what-to-send li {
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-email {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: var(--color-green);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 0.15s ease;
+    }
+
+    .btn-email:hover {
+      filter: brightness(1.05);
+    }
+
+    .privacy-note {
+      margin-top: 1rem;
+      font-size: 0.8125rem;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    .benefits-section {
+      padding: 4rem 0;
+      background: #F7FAFC;
+    }
+
+    .benefits-section h2 {
+      text-align: center;
+      color: #1A365D;
+      margin: 0 0 0.75rem;
+    }
+
+    .benefits-lead {
+      text-align: center;
+      color: #4A5568;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .benefit-card {
+      background: #FFFFFF;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      text-align: center;
+    }
+
+    .benefit-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .benefit-card h3 {
+      color: #1A365D;
+      margin: 0 0 0.5rem;
+      font-size: 1.0625rem;
+    }
+
+    .benefit-card p {
+      color: #4A5568;
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-navy);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-link:hover {
+      color: var(--color-green);
+    }
+
+    @media (max-width: 768px) {
+      .main-section,
+      .benefits-section {
+        padding: 2.5rem 0;
+      }
+
+      .info-box,
+      .action-box {
+        padding: 1.5rem;
+      }
+
+      .content-grid {
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="EnergieExpert B2B Startseite">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="#1A365D"/>
+          <circle cx="24" cy="24" r="14" stroke="#38A169" stroke-width="3" fill="none"/>
+          <path d="M24 15c-3.3 0-6 2.7-6 6 0 2.1 1.1 4 2.8 5 .4.3.6.6.6 1v1.5c0 .4.3.7.7.7h3.8c.4 0 .7-.3.7-.7V27c0-.4.2-.7.6-1 1.7-1 2.8-2.9 2.8-5 0-3.3-2.7-6-6-6zm-1.5 15h3v.8c0 .4-.3.7-.7.7h-1.6c-.4 0-.7-.3-.7-.7v-.8z" fill="#38A169"/>
+        </svg>
+        <span>EnergieExpert<span class="logo-accent"> B2B</span></span>
+      </a>
+      <nav class="nav-minimal" aria-label="Hauptnavigation">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="team.html">Team</a>
+      </nav>
+      <div class="header-cta">
+        <a href="index.html#kontakt" class="btn btn-primary btn-sm">Kontakt aufnehmen</a>
+      </div>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav aria-label="Mobile Navigation">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="team.html">Team</a>
+        <a href="index.html#kontakt" class="btn btn-primary">Kontakt aufnehmen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Energiekosten-Check für Ihr Unternehmen</h1>
+        <p>Wir prüfen Ihre Energieverträge und zeigen Ihnen unverbindlich Ihr Einsparpotenzial.</p>
+      </div>
+    </section>
+
+    <!-- Main Section -->
+    <section class="main-section">
+      <div class="container">
+        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+        
+        <div class="content-grid">
+          <!-- Left: How it works -->
+          <div class="info-box">
+            <h2>So einfach funktioniert's</h2>
+            
+            <ol class="steps-list">
+              <li>
+                <span class="step-number">1</span>
+                <div class="step-content">
+                  <h3>Abrechnung senden</h3>
+                  <p>Schicken Sie uns Ihre letzte Strom- und/oder Gas-Jahresabrechnung per E-Mail – ein Foto oder Scan reicht völlig aus.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-number">2</span>
+                <div class="step-content">
+                  <h3>Wir analysieren</h3>
+                  <p>Unsere Experten prüfen Ihre Verträge, vergleichen mit aktuellen Marktangeboten und identifizieren Einsparpotenziale.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-number">3</span>
+                <div class="step-content">
+                  <h3>Sie erhalten Ihre Analyse</h3>
+                  <p>Wir melden uns zeitnah mit einer unverbindlichen Energiekostenanalyse und konkreten Einsparpotenzialen.</p>
+                </div>
+              </li>
+            </ol>
+
+          </div>
+
+          <!-- Right: Action -->
+          <div class="action-box">
+            <h2>Jetzt Analyse anfordern</h2>
+            <p>Senden Sie uns Ihre Jahresabrechnung und wir melden uns mit Ihrer persönlichen Energiekostenanalyse.</p>
+
+            <div class="email-info">
+              <p class="email-label">Senden Sie Ihre Unterlagen an:</p>
+              <p class="email-address">
+                <a href="mailto:analyse@energieexpert-b2b.de?subject=Energiekostenanalyse%20anfordern&body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20eine%20kostenlose%20Energiekostenanalyse%20anfordern.%0A%0AMeine%20Jahresabrechnung%20finden%20Sie%20im%20Anhang.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen">analyse@energieexpert-b2b.de</a>
+              </p>
+            </div>
+
+            <div class="what-to-send">
+              <h3>Was Sie senden sollten:</h3>
+              <ul>
+                <li>Letzte Stromjahresabrechnung (Foto oder Scan)</li>
+                <li>Optional: Gasjahresabrechnung</li>
+                <li>Kurze Info zu Ihrem Unternehmen</li>
+              </ul>
+            </div>
+
+            <a href="mailto:analyse@energieexpert-b2b.de?subject=Energiekostenanalyse%20anfordern&body=Guten%20Tag%2C%0A%0Aich%20m%C3%B6chte%20eine%20kostenlose%20Energiekostenanalyse%20anfordern.%0A%0AMeine%20Jahresabrechnung%20finden%20Sie%20im%20Anhang.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn-email">
+              📧 E-Mail mit Anhang öffnen
+            </a>
+
+            <p class="privacy-note">Ihre Daten werden vertraulich behandelt und nur für die Analyse verwendet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="container">
+        <h2>Warum bei uns?</h2>
+        <p class="benefits-lead">Wir machen Energieoptimierung für KMUs einfach und transparent.</p>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <h3>100% Kostenlos</h3>
+            <p>Die Analyse ist für Sie komplett unverbindlich und kostenlos – ohne versteckte Kosten.</p>
+          </article>
+
+          <article class="benefit-card">
+            <h3>Kein Aufwand</h3>
+            <p>Sie senden nur Ihre Abrechnung – wir übernehmen die komplette Analyse und Recherche.</p>
+          </article>
+
+          <article class="benefit-card">
+            <h3>Konkrete Zahlen</h3>
+            <p>Sie erhalten keine vagen Versprechen, sondern eine Analyse mit echten Einsparpotenziale.</p>
+          </article>
+
+          <article class="benefit-card">
+            <h3>Unabhängig</h3>
+            <p>Wir arbeiten anbieterunabhängig – unsere Empfehlung basiert nur auf Ihrem Vorteil.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-footer">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect width="48" height="48" rx="10" fill="#1A365D"/>
+            <circle cx="24" cy="24" r="14" stroke="#38A169" stroke-width="3" fill="none"/>
+            <path d="M24 15c-3.3 0-6 2.7-6 6 0 2.1 1.1 4 2.8 5 .4.3.6.6.6 1v1.5c0 .4.3.7.7.7h3.8c.4 0 .7-.3.7-.7V27c0-.4.2-.7.6-1 1.7-1 2.8-2.9 2.8-5 0-3.3-2.7-6-6-6zm-1.5 15h3v.8c0 .4-.3.7-.7.7h-1.6c-.4 0-.7-.3-.7-.7v-.8z" fill="#38A169"/>
+          </svg>
+          <span>EnergieExpert<span class="logo-accent"> B2B</span></span>
+        </a>
+        <p class="footer-tagline">Unabhängige Energieoptimierung für den Mittelstand.</p>
+      </div>
+      <div>
+        <h3 class="footer-heading">Leistungen</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#leistungen">Strom/Gas Optimierung</a></li>
+          <li><a href="index.html#leistungen">Energiegutachten</a></li>
+          <li><a href="index.html#leistungen">Photovoltaik</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Über uns</h3>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Kontakt</h3>
+        <ul class="footer-links">
+          <li>Musterstraße 12, 10115 Berlin</li>
+          <li><a href="tel:+4980012345678">0800 123 456 78</a></li>
+          <li><a href="mailto:kontakt@energieexpert-b2b.de">kontakt@energieexpert-b2b.de</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> EnergieExpert B2B · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="agb.html">AGB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    var menuToggle = document.querySelector(".menu-toggle");
+    var mobileNav = document.getElementById("mobile-nav");
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener("click", function () {
+        var open = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!open));
+        mobileNav.hidden = open;
+        menuToggle.setAttribute("aria-label", open ? "Menü öffnen" : "Menü schließen");
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lernen Sie das Team von EnergieExpert B2B kennen. Erfahrene Energieberater für KMUs – unabhängig, kompetent und auf Ihre Branche spezialisiert.">
+  <meta name="keywords" content="EnergieExpert Team, Energieberater, KMU Energieberatung, Experten Energieoptimierung">
+  <title>Unser Team | EnergieExpert B2B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .page-hero {
+      padding: 3rem 0;
+      background: linear-gradient(165deg, #FFFFFF 0%, #F7FAFC 100%);
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      color: #1A365D;
+      margin: 0 0 0.75rem;
+    }
+
+    .page-hero p {
+      color: #4A5568;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .team-section {
+      padding: 4rem 0;
+    }
+
+    .team-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .team-intro h2 {
+      color: #1A365D;
+      margin: 0 0 1rem;
+    }
+
+    .team-intro p {
+      color: #4A5568;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(26, 54, 93, 0.06);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .team-card:hover {
+      box-shadow: 0 8px 24px rgba(26, 54, 93, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .team-photo {
+      height: 200px;
+      background: linear-gradient(135deg, #1A365D 0%, #2C5282 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-photo-placeholder {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .team-info {
+      padding: 1.5rem;
+    }
+
+    .team-info h3 {
+      margin: 0 0 0.25rem;
+      color: #1A365D;
+      font-size: 1.125rem;
+    }
+
+    .team-role {
+      color: #38A169;
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin: 0 0 1rem;
+    }
+
+    .team-info p {
+      color: #4A5568;
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+
+    .values-section {
+      padding: 4rem 0;
+      background: #F7FAFC;
+    }
+
+    .values-section h2 {
+      text-align: center;
+      color: #1A365D;
+      margin: 0 0 0.75rem;
+    }
+
+    .values-lead {
+      text-align: center;
+      color: #4A5568;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      background: #FFFFFF;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      text-align: center;
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .value-card h3 {
+      color: #1A365D;
+      margin: 0 0 0.5rem;
+      font-size: 1.0625rem;
+    }
+
+    .value-card p {
+      color: #4A5568;
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+
+    .cta-section {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: #1A365D;
+      margin: 0 0 0.75rem;
+    }
+
+    .cta-section p {
+      color: #4A5568;
+      margin: 0 0 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .team-section,
+      .values-section,
+      .cta-section {
+        padding: 2.5rem 0;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="EnergieExpert B2B Startseite">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="#1A365D"/>
+          <circle cx="24" cy="24" r="14" stroke="#38A169" stroke-width="3" fill="none"/>
+          <path d="M24 15c-3.3 0-6 2.7-6 6 0 2.1 1.1 4 2.8 5 .4.3.6.6.6 1v1.5c0 .4.3.7.7.7h3.8c.4 0 .7-.3.7-.7V27c0-.4.2-.7.6-1 1.7-1 2.8-2.9 2.8-5 0-3.3-2.7-6-6-6zm-1.5 15h3v.8c0 .4-.3.7-.7.7h-1.6c-.4 0-.7-.3-.7-.7v-.8z" fill="#38A169"/>
+        </svg>
+        <span>EnergieExpert<span class="logo-accent"> B2B</span></span>
+      </a>
+      <nav class="nav-minimal" aria-label="Hauptnavigation">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="team.html" style="color: #1A365D;">Team</a>
+      </nav>
+      <div class="header-cta">
+        <a href="index.html#kontakt" class="btn btn-primary btn-sm">Kontakt aufnehmen</a>
+      </div>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav aria-label="Mobile Navigation">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="team.html">Team</a>
+        <a href="index.html#kontakt" class="btn btn-primary">Kontakt aufnehmen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Unser Team</h1>
+        <p>Erfahrene Energieberater, die sich auf die Bedürfnisse kleiner und mittlerer Unternehmen spezialisiert haben.</p>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+      <div class="container">
+        <div class="team-intro">
+          <h2>Die Menschen hinter EnergieExpert B2B</h2>
+          <p>Wir sind ein Team aus Energieexperten, die eines gemeinsam haben: Die Überzeugung, dass auch KMUs von professioneller Energieberatung profitieren sollten – ohne hohe Kosten und komplizierte Prozesse.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-photo">
+              <div class="team-photo-placeholder">👤</div>
+            </div>
+            <div class="team-info">
+              <h3>Max Mustermann</h3>
+              <p class="team-role">Geschäftsführer & Energieberater</p>
+              <p>Über 15 Jahre Erfahrung in der Energiebranche. Spezialisiert auf Vertragsoptimierung für produzierende Unternehmen.</p>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-photo">
+              <div class="team-photo-placeholder">👤</div>
+            </div>
+            <div class="team-info">
+              <h3>Anna Schmidt</h3>
+              <p class="team-role">Leiterin Photovoltaik</p>
+              <p>Diplom-Ingenieurin mit Fokus auf erneuerbare Energien. Begleitet KMUs von der PV-Planung bis zur Inbetriebnahme.</p>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-photo">
+              <div class="team-photo-placeholder">👤</div>
+            </div>
+            <div class="team-info">
+              <h3>Thomas Weber</h3>
+              <p class="team-role">Senior Energieberater</p>
+              <p>Ehemaliger Einkaufsleiter eines Mittelständlers. Kennt die Herausforderungen von KMUs aus erster Hand.</p>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-photo">
+              <div class="team-photo-placeholder">👤</div>
+            </div>
+            <div class="team-info">
+              <h3>Lisa Hoffmann</h3>
+              <p class="team-role">Kundenbetreuung</p>
+              <p>Ihr direkter Ansprechpartner für alle Fragen. Sorgt dafür, dass Ihre Anliegen schnell und unkompliziert bearbeitet werden.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+      <div class="container">
+        <h2>Unsere Werte</h2>
+        <p class="values-lead">Was uns antreibt und wie wir arbeiten.</p>
+
+        <div class="values-grid">
+          <article class="value-card">
+            <h3>Partnerschaftlich</h3>
+            <p>Wir verstehen uns als Partner auf Augenhöhe – keine Verkäufer, sondern Berater mit Ihrem Interesse im Fokus.</p>
+          </article>
+
+          <article class="value-card">
+            <h3>Ergebnisorientiert</h3>
+            <p>Wir messen uns an den Einsparungen, die wir für Sie erzielen – nicht an theoretischen Potenzialen.</p>
+          </article>
+
+          <article class="value-card">
+            <h3>Unabhängig</h3>
+            <p>Keine versteckten Provisionen von Energieanbietern. Unsere Empfehlungen basieren allein auf Ihrem Vorteil.</p>
+          </article>
+
+          <article class="value-card">
+            <h3>Transparent</h3>
+            <p>Klare Kommunikation, verständliche Erklärungen und keine Überraschungen – so arbeiten wir.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Lassen Sie uns sprechen</h2>
+        <p>Lernen Sie uns in einem unverbindlichen Erstgespräch kennen.</p>
+        <a href="index.html#kontakt" class="btn btn-primary btn-lg">Kostenlose Erstberatung anfordern</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-footer">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect width="48" height="48" rx="10" fill="#1A365D"/>
+            <circle cx="24" cy="24" r="14" stroke="#38A169" stroke-width="3" fill="none"/>
+            <path d="M24 15c-3.3 0-6 2.7-6 6 0 2.1 1.1 4 2.8 5 .4.3.6.6.6 1v1.5c0 .4.3.7.7.7h3.8c.4 0 .7-.3.7-.7V27c0-.4.2-.7.6-1 1.7-1 2.8-2.9 2.8-5 0-3.3-2.7-6-6-6zm-1.5 15h3v.8c0 .4-.3.7-.7.7h-1.6c-.4 0-.7-.3-.7-.7v-.8z" fill="#38A169"/>
+          </svg>
+          <span>EnergieExpert<span class="logo-accent"> B2B</span></span>
+        </a>
+        <p class="footer-tagline">Unabhängige Energieoptimierung für den Mittelstand.</p>
+      </div>
+      <div>
+        <h3 class="footer-heading">Leistungen</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#leistungen">Strom/Gas Optimierung</a></li>
+          <li><a href="index.html#leistungen">Energiegutachten</a></li>
+          <li><a href="index.html#leistungen">Photovoltaik</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Über uns</h3>
+        <ul class="footer-links">
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Kontakt</h3>
+        <ul class="footer-links">
+          <li>Musterstraße 12, 10115 Berlin</li>
+          <li><a href="tel:+4980012345678">0800 123 456 78</a></li>
+          <li><a href="mailto:kontakt@energieexpert-b2b.de">kontakt@energieexpert-b2b.de</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> EnergieExpert B2B · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="agb.html">AGB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile nav
+    var menuToggle = document.querySelector(".menu-toggle");
+    var mobileNav = document.getElementById("mobile-nav");
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener("click", function () {
+        var open = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!open));
+        mobileNav.hidden = open;
+        menuToggle.setAttribute("aria-label", open ? "Menü öffnen" : "Menü schließen");
+      });
+    }
+  </script>
+</body>
+</html>
